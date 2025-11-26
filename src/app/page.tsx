@@ -1,5 +1,6 @@
-import BlogCard from "../components/BlogCard";
-import { Blog } from "../types/blog";
+import Hero from "@/src/components/Hero";
+import BlogCard from "@/src/components/BlogCard";
+import { Blog } from "@/src/types/blog";
 
 const fakeData: Blog[] = [
   {
@@ -11,20 +12,23 @@ const fakeData: Blog[] = [
   },
   {
     id: "2",
-    title: "Welcome to Secound Blog!",
-    description: "This is our secound blog post using Next.js + TypeScript.",
+    title: "Welcome to Second Blog!",
+    description: "This is our second blog post.",
     image: "https://picsum.photos/400/410?1",
     createdAt: "2025-01-02",
   }
 ];
 
+export default function Home() {
+  return (
+    <>
+      <Hero />
 
-export default function Home(){
-    return (
-        <main className="p-6 grid grid-cols-1 md:grid-cols-3 gap-6">
-            {fakeData.map((blog)=>(
-                <BlogCard key={blog.id} blog={blog}/>
-            ))}
-        </main>
-    );
+      <main className="p-6 grid grid-cols-1 md:grid-cols-3 gap-6">
+        {fakeData.map((blog) => (
+          <BlogCard key={blog.id} blog={blog} />
+        ))}
+      </main>
+    </>
+  );
 }

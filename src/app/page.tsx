@@ -9,6 +9,13 @@ const fakeData: Blog[] = [
     image: "https://picsum.photos/600/400?1",
     createdAt: "2025-01-01",
   },
+  {
+    id: 1,
+    title: "Welcome to Secound Blog!",
+    description: "This is our secound blog post using Next.js + TypeScript.",
+    image: "https://picsum.photos/400/410?1",
+    createdAt: "2025-01-02",
+  }
 ];
 
 

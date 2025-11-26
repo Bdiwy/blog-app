@@ -1,23 +1,48 @@
 import { Blog } from "@/src/types/blog";
+import { fakeData } from "@/src/lib/fakeApi";
 
-interface BlogDetailsProps {
+interface BlogPageProps {
   params: {
     id: string;
   };
 }
 
-export default function BlogDetails({ params }: BlogDetailsProps) {
-  const { id } = params;
+export default function BlogPage({ params }: BlogPageProps) {
+  const blog = fakeData.find((b) => b.id === params.id);
+
+  if (!blog) {
+    return (
+      <div className="p-10 text-center">
+        <h1 className="text-3xl font-bold text-red-600">
+          Blog Not Found 😢
+        </h1>
+      </div>
+    );
+  }
 
   return (
-    <main className="p-6 max-w-2xl mx-auto">
-      <h1 className="text-3xl font-bold mb-4">Blog Details</h1>
+    <div className="p-6 max-w-3xl mx-auto">
+      <img
+        src={blog.image}
+        alt={blog.title}
+        className="w-full h-72 object-cover rounded-xl mb-6"
+      />
 
-      <p className="text-gray-600 mb-2">
-        Viewing Blog with ID: <span className="font-semibold">{id}</span>
+      <h1 className="text-4xl font-bold mb-4">{blog.title}</h1>
+
+      <span className="text-gray-500 text-sm block mb-4">
+        Published: {new Date(blog.createdAt).toLocaleDateString()}
+      </span>
+
+      <p className="text-lg leading-8 text-gray-700">
+        {blog.description}
       </p>
 
-      {/* هنا هنضيف باقي التفاصيل بعد ما نربطها بالـ API */}
-    </main>
+      <p className="mt-6 text-gray-600 leading-7">
+        Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam
+        feugiat sapien risus, sed lacinia odio gravida at. Donec vitae
+        suscipit massa.
+      </p>
+    </div>
   );
 }

@@ -18,7 +18,7 @@ export default function RootLayout({
         <Navbar />
 
         {/* Content takes all remaining height */}
-        <main className="flex-grow">
+        <main className="grow">
           {children}
         </main>
 

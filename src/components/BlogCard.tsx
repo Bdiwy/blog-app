@@ -8,7 +8,7 @@ interface BlogCardProps {
 export default function BlogCard({ blog }: BlogCardProps) {
   return (
     <Link href={`/blog/${blog.id}`}>
-      <div className="p-4 border rounded-xl shadow-sm hover:shadow-md transition cursor-pointer">
+      <div className="p-6 border rounded-xl bg-stone-900 shadow-lg hover:shadow-md transition cursor-pointer">
         <img
           src={blog.image}
           alt={blog.title}

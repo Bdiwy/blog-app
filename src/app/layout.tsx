@@ -14,11 +14,13 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en">
-      <body className="bg-white">
+      <body className="bg-orange min-h-screen flex flex-col">
         <Navbar />
 
-        {/* Page Content */}
-        {children}
+        {/* Content takes all remaining height */}
+        <main className="flex-grow">
+          {children}
+        </main>
 
         <Footer />
       </body>

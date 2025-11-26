@@ -24,11 +24,14 @@ export default function Home() {
     <>
       <Hero />
 
-      <main className="p-6 grid grid-cols-1 md:grid-cols-3 gap-6">
-        {fakeData.map((blog) => (
-          <BlogCard key={blog.id} blog={blog} />
-        ))}
+      <main className="p-6">
+        <div className="max-w-6xl mx-auto grid grid-cols-1 md:grid-cols-3 gap-6">
+          {fakeData.map((blog) => (
+            <BlogCard key={blog.id} blog={blog} />
+          ))}
+        </div>
       </main>
+
     </>
   );
 }

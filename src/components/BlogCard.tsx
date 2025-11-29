@@ -6,8 +6,11 @@ interface BlogCardProps {
 }
 
 export default function BlogCard({ blog }: BlogCardProps) {
+  console.log(blog.id);
   return (
+    
     <Link href={`/blog/${blog.id}`}>
+
       <div className="p-6 border rounded-xl bg-stone-900 shadow-lg hover:shadow-md transition cursor-pointer">
         <img
           src={blog.image}

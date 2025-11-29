@@ -1,14 +1,14 @@
-import { Blog } from "@/src/types/blog";
 import { fakeData } from "@/src/lib/fakeApi";
 
 interface BlogPageProps {
-  params: {
-    id: string;
-  };
+  params: { id: string };
 }
 
-export default function BlogPage({ params }: BlogPageProps) {
-  const blog = fakeData.find((b) => b.id === params.id);
+export default function BlogPage({ params }: { params: { id: string } }) {
+  const { id } = params; // get id from params
+  console.log("Server id:", params.id);
+
+  const blog = fakeData.find(params => params.id === id);
 
   if (!blog) {
     return (
@@ -34,9 +34,7 @@ export default function BlogPage({ params }: BlogPageProps) {
         Published: {new Date(blog.createdAt).toLocaleDateString()}
       </span>
 
-      <p className="text-lg leading-8 text-gray-700">
-        {blog.description}
-      </p>
+      <p className="text-lg leading-8 text-gray-700">{blog.description}</p>
 
       <p className="mt-6 text-gray-600 leading-7">
         Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam

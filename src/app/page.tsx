@@ -9,7 +9,7 @@ export default function Home() {
 
       <main className="p-6 grid grid-cols-1 md:grid-cols-3 gap-6 max-w-7xl mx-auto">
         {fakeData.map((blog) => (
-          <BlogCard key={blog.id} blog={blog} />
+          <BlogCard key={blog.id} blog={blog} />          
         ))}
       </main>
     </>
